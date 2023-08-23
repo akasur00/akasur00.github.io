@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+<meta charset="utf-8">
+<link rel='stylesheet' href='../css/styles.css'>
+<title>RoWis cooles Geographie Quiz</title>
+</head>
 
+<body>
+<div id="background">
+<div>
+<h1 id="header">RoWis cooles Geographie Quiz</h1>
+</div>
+<div id="flag_div"><img src="../Pictures/Flags/ve.svg" alt="Bild konnte nicht geladen werden" class="imagesize"></div>
+<div id="map_div"><img src="../Pictures/Maps_Countries/Venezuela.svg" alt="Bild konnte nicht geladen werden" class="imagesize"></div>
+<div id="form_div">
+<form method="post" action="./Auflösung.cgi">
+<p>Geben sie die folgenden Daten zum angezeigten Land an:</p>
+<p>Name des Landes:<br>
+<input type="text" name="var_name"></p>
+<div id="tooltip_div">
+<div class="tooltip">Tipp
+<span class="tooltiptext">
+Kolumbien, Venezuela, Ecuador, Guyana, Suriname, Frankreich,
+Peru, Brasilien, Bolivien, Paraguay, Uruguay,
+Chile, Argentinien
+</span>
+</div>
+</div>
+<p>Schätzen sie die Einwohnerzahl in Millionen:<br>
+<input type="text" name="var_einwohner"></p>
+<p>Schätzen sie die Fläche in km²:<br>
+<input type="number" name="var_flaeche"></p>
+
+<input type="hidden" name="var_randomizer" value="2">
+
+<p><input type="submit" value="Überprüfen"></p>
+</form>
+<br>
+<a class="links" id="link" href="http://pan.th-brandenburg.de/~huebner/cgi-bin/Impressum.html"> Studenten +
+Quellen </a>
+</div>
+</div>
+</body>
+</html>
