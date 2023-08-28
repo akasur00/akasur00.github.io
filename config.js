@@ -27,7 +27,7 @@ const CONFIG = {
 
 	// Weather
 	weatherKey: '6ef0ef194caa1a1d5e3ba6ae9c0d20e8', // Write here your API Key
-	weatherIcons: 'Dark', // 'Onedark', 'Nord', 'Dark', 'White'
+	weatherIcons: 'Nord', // 'Onedark', 'Nord', 'Dark', 'White'
 	weatherUnit: 'C', // 'F', 'C'
 	language: 'de', // More languages in https://openweathermap.org/current#multi
 
@@ -53,39 +53,39 @@ const CONFIG = {
 	firstButtonsContainer: [
 		{
 			id: '1',
-			name: 'Github',
-			icon: 'github',
-			link: 'https://github.com/',
-		},
-		{
-			id: '2',
 			name: 'Mail',
 			icon: 'mail',
 			link: 'https://mail.protonmail.com/',
 		},
 		{
+			id: '2',
+			name: 'Github',
+			icon: 'github',
+			link: 'https://github.com/',
+		},
+		{
 			id: '3',
-			name: 'Todoist',
+			name: 'Trello',
 			icon: 'trello',
-			link: 'https://todoist.com',
+			link: 'https://trello.com',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			name: 'Amazon',
+			icon: 'shopping-bag',
+			link: 'https://amazon.com/',
 		},
 		{
 			id: '5',
-			name: 'Reddit',
-			icon: 'glasses',
-			link: 'https://reddit.com',
+			name: 'ChatGPT',
+			icon: 'brain-cog',
+			link: 'https://chat.openai.com/',
 		},
 		{
 			id: '6',
-			name: 'Odysee',
+			name: 'Youtube',
 			icon: 'youtube',
-			link: 'https://odysee.com/',
+			link: 'https://youtube.com/',
 		},
 	],
 
@@ -135,46 +135,50 @@ const CONFIG = {
 	// First Links Container
 	firstlistsContainer: [
 		{
-			icon: 'music',
+			icon: 'graduation-cap',
 			id: '1',
 			links: [
 				{
-					name: 'Inspirational',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Moodle',
+					link: 'https://moodle.th-brandenburg.de/',
 				},
 				{
-					name: 'Classic',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Zimbra',
+					link: 'https://webmail.th-brandenburg.de/',
 				},
 				{
-					name: 'Oldies',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name:`Raumbuchung`,
+					link:`https://bw1.th-brandenburg.de/`,
 				},
 				{
-					name: 'Rock',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Bibliothek',
+					link: 'https://opac.th-brandenburg.de',
+				},
+				{
+					name: 'MeinCampus',
+					link: 'https://meincampus.th-brandenburg.de',
 				},
 			],
 		},
 		{
-			icon: 'coffee',
+			icon: 'home',
 			id: '2',
 			links: [
 				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
+					name: 'Fritz!Box',
+					link: 'Fritz.box',
 				},
 				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
+					name: 'PiHole',
+					link: 'http://192.168.178.28',
 				},
 				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
+					name: 'Lucide',
+					link: 'https://lucide.dev/icons',
 				},
 				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
+					name: 'CloudFlare',
+					link: 'https://www.cloudflare.com/',
 				},
 			],
 		},
