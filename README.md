@@ -1,127 +1,272 @@
-## Prismatic-Night
+![image](assets/img/header.png)
 
-If you're seeing something unexpected OR the result doesn't match the screenshots OR you want me to add new features to the startpage OR you need help in modifing the existing files, [click on this](https://github.com/dbuxy218/Prismatic-Night/issues/new/choose) to open an issue and I'll try to solve it. Post a screenshot of the problem, your current OS as well as the version of firefox you're using. 
+<br />
 
-#### About the Startpage
+## 👇 Index
+- [👇 Index](#-index)
+- [✨ Features](#-features)
+- [🚀 Usage](#-usage)
+  - [🏡 As Home Page](#-as-home-page)
+  - [➕ As New Tab](#-as-new-tab)
+  - [🐳 In a Docker Container](#-in-a-docker-container)
+    - [Docker run](#docker-run)
+    - [docker-compose](#docker-compose)
+- [🎨 Customization](#-customization)
+  - [👋 General: Name, Image Background and Greetings](#-general-name-image-background-and-greetings)
+  - [📐 Layouts: Bento, Lists and Buttons.](#-layouts-bento-lists-and-buttons)
+  - [🏷️ Buttons \& Links](#️-buttons--links)
+  - [📑 Lists \& Links](#-lists--links)
+  - [⛈️ Weather: Api Key, Icons and Unit](#️-weather-api-key-icons-and-unit)
+  - [💛 Colors](#-colors)
+  - [🌑 Auto change theme](#-auto-change-theme)
 
-The Startpage is hosted using github-pages. [Click here](https://dbuxy218.github.io/Prismatic-Night/) to see the live preview.
-The Startpage currently supports searching with DuckDuckgo and Google. Click on the search engine logo image to toggle the search engine.
+## ✨ Features
 
-![engine](/screenshots/engineToggle.gif)
+- **Easy configuration** file.
+- **Dark/Light** mode, you can toggle it and will be saved in local storage.
+- **Layouts!** to customize your experience following your workflow.
+- **Clock and Date** format can be set to 24 hour (default) or 12 hour.
+- **Greetings** are easy to modify.
+- **Variables** for custom colors and font sizes in the `app.css` code.
+- All **icons** are from [Lucide icons](https://lucide.dev).
+- **Modular** javascript files for an easy read.
 
-### Table of Contents
-│── [Instructions](#Instructions)<br>│   │── [Firefox theme](#Firefoxtheme)<br>│   │   │── [Setting the userchrome](#userchrome)<br>│   │   │── [Setting the startpage as the Home page](#homepage)<br>│   │   └── [Setting the startpage as the New Tab page](#newtab)<br>│   │── [Openbox theme](#openbox)<br>│   │── [Tint2 theme](#tint2)<br>│   │── [Folder and systray icons](#icons)<br>│   │── [Geany colorscheme](#geany)<br>│   └── [Zathura](#zathura)<br>└── [Screenshots](#scrots)<br>
+## 🚀 Usage
 
-## Instructions <a name="Instructions"></a>
+### 🏡 As Home Page
 
-## Firefox theme <a name="Firefoxtheme"></a>
-(**tested in Firefox 80.0**)
+1. Fork this repo
+2. Enable the Github Pages service `Settings → GitHub Pages → Source [master branch] → Save`
+3. Set it as Home Page:
+   - Click the menu button. and select Options. Preferences.
+   - Click the Home panel.
+   - Click the menu next to Homepage and new windows and choose to show custom URLs and add your `Github Pages link`
 
-### Setting the userchrome <a name="userchrome"></a>
-Place the chrome dir in `~/.mozilla/firefox/PROFILE/` to use them. You can get the location of your PROFILE dir in `about:profiles` (type this in the address bar in your browser).
+### ➕ As New Tab
 
-If you are using FF 69+ you need to enable this first: `about:config > toolkit.legacyUserProfileCustomizations.stylesheets > true`
+You can use different Add-ons/Extensions for it
 
-**Also, set the UI density to compact.**
+- If you use Firefox: [Custom New Tab Page](https://addons.mozilla.org/en-US/firefox/addon/custom-new-tab-page/?src=search) and make sure you enable "Force links to open in the top frame (experimental)" in the extension's preferences page.
+- If you use Chromium (Brave, Vivaldi, Chrome): [Custom New Tab URL](https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia)
 
-Right-click on tabs bar/nav bar > Customize.. > Density > Compact
+### 🐳 In a Docker Container
 
-![uidensity](/screenshots/uidensity.png)
+You can run Bento in a Docker Container, either with `docker run`, or with the included `docker-compose` file.
 
-**Important**: see [userChrome.css](https://github.com/dbuxy218/Prismatic-Night/blob/master/firefox/chrome/userChrome.css)
+#### Docker run
+ 1. Clone this repo to pull the `config.js` file: `git clone https://github.com/migueravila/Bento/`
+ 2. Run the following `docker` command, providing the path to the `config.js` file, changing port mappings if needed.
+ 3. `# docker run -it -d -p 80:80 -v <config.js location>:/usr/share/nginx/html/config.js lewisdoesstuff/bento`
 
-![patches](/screenshots/patches.png)
+#### docker-compose
+  1. Clone this repo with `git clone https://github.com/migueravila/Bento/`
+  2. Edit port mappings, and provide a path to the `config.js` file in `docker-compose.yml`
+  3. `cd` into the cloned repo, then run `# docker-compose -d up` to start. 
 
-The userchrome is divided into various "patch files" so that it will be easier to add/ edit the different bits.
+## 🎨 Customization
 
-Lines *11* and *12* contains two nav bar access methods(use any **one** at once, i.e. uncomment line 11 or 12. If one of them is uncommented the other must be commented):
+All customization can be managed in the `config.js` file:
 
-#### *Hover access*
+### 👋 General: Name, Image Background and Greetings
 
-![hover](/screenshots/hover.gif)
+To change the default name, the greetings and if you want to have an image background or open your links in new tabs, edit the first configs in the `config.js`.
 
-This is the default access method. Just hover on the tab area with your cursor to access the nav bar and other stuff.
+```js
+ // General
+  name: 'John',
+  imageBackground: false,
+  openInNewTab: true,
 
+  // Greetings
+  greetingMorning: 'Good morning!',
+  greetingAfternoon: 'Good afternoon,',
+  greetingEvening: 'Good evening,',
+  greetingNight: 'Go to Sleep!',
 
-#### *Ctrl+L access*
-
-![ctrlL](/screenshots/ctrl_L.gif)
-
-If this is uncommented, you need to press **Ctrl+L** to access the url bar and other stuff. I prefer this mode as I find the access on hover a little annoying. So i've included it too.(previously this was the default mode but some people who weren't aware of the Ctrl+L feature was having problem. So i decided to make this optional and the access on hover default).
-
-If you want the nav bar to remain unhidden, comment both lines *11* and *12*.
-
-##### **BONUS**: uncomment line 8 to put the tabs in the bottom. 
-
-### Setting the startpage as the Home page <a name="homepage"></a>
-
-Copy the startpage dir to `~/.mozilla/firefox/PROFILE/` just like above. Right click on the `index.html` from the startpage dir and open with firefox. Now copy the location of the file from the address bar. It looks like this: `file:///home/debasis/.mozilla/firefox/sawjo289.default-esr/startpage/index.html`. Open `preferences > Home` from the hamburger menu, select custom URLs and paste the address like so:
-
-![prefs](/screenshots/pref.png)
-
-Restart firefox.
-
-### Setting the startpage as the New Tab page <a name="newtab"></a>
-In the older firefox versions this step was very easy and straight forward but now it's a bit [complicated](https://support.mozilla.org/en-US/kb/customizing-firefox-using-autoconfig). But fortunately if you follow these steps it will be quite easy([credit/for windows](https://www.reddit.com/r/firefox/comments/ge86z4/newtab_page_to_local_file_firefox_76_redux/)):
-
-- Open the firefox/newtab/ dir in your file manager. It contains `local-settings.js` and `mozilla.cfg`.
-- Open `mozilla.cfg` in any text editor. It looks like this:
-
-![prefs](/screenshots/cfg.png)
-
-- In line 7 paste the address of the `index.html`(see previous section) in the double quotes. Save and close the file.
-
-- Open your terminal and `cd` into firefox/newtab/ (location of `local-settings.js` and `mozilla.cfg`). 
-- Now run the following commands as root user:
 ```
-sudo cp mozilla.cfg /usr/lib/firefox/
-sudo cp local-settings.js /usr/lib/firefox/defaults/pref/
+
+> You can change the background by substituting the `background.jpg` file in `assets` folder.
+
+![](assets/img/backgroundImage.png)
+
+### 📐 Layouts: Bento, Lists and Buttons.
+
+Bento has three different layouts `bento`, `lists` & `buttons`. It allows you to customise your experience giving you more buttons or lists depending on how are you more comfortable. To modify the laout you need to change the following line in the `config.js` file:
+
+```js
+  // Layout
+  bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
+
 ```
-![setpage](/screenshots/setpage.png)
-- Restart firefox (Done!).
 
----
+If you want to customize all your extra buttons and lists go to [🏷️ Buttons & Links](#️-buttons--links) & [📑 Lists & Links](#-lists--links) sections.
 
-### Openbox theme <a name="openbox"></a>
+![](assets/img/bentoLayouts.png)
 
-Copy the Prismatic-Night dir from dots/openbox dir to ~/.themes/ or /usr/share/themes/ to use it and select the theme with your Openbox Configuration Manager.
+### 🏷️ Buttons & Links
 
-#### Tint2 theme <a name="tint2"></a>
+To edit the buttons you just need to change the follow list in the `config.js` file by choosing a link, an icon from [Lucide icons](https://lucide.dev) and a name. If you're using the `buttons` [layout](#-layouts-bento-lists-and-buttons) you can customize `secondButtonsContainer`
 
-Copy the contents of the dots/tint2(or tint2-alt) dir to ~/.config/tint2/ and select the theme with your tint2 gui editor/ theme selector. Do not forget to put the correct path of the icons in your tint2rc otherwise the icons wont appear(change it to your username in /home/USERNAME/.config/tint2/icons/icon.png).
+```js
+  firstButtonsContainer: [
+    {
+      id: '1',
+      name: 'Github',
+      icon: 'github',
+      link: 'https://github.com/',
+    },
+    {
+      id: '2',
+      name: 'Mail',
+      icon: 'mail',
+      link: 'https://mail.protonmail.com/',
+    },
+    {
+      id: '3',
+      name: 'Todoist',
+      icon: 'trello',
+      link: 'https://todoist.com',
+    },
+    {
+      id: '4',
+      name: 'Calendar',
+      icon: 'calendar',
+      link: 'https://calendar.google.com/calendar/r',
+    },
+    {
+      id: '5',
+      name: 'Reddit',
+      icon: 'glasses',
+      link: 'https://reddit.com',
+    },
+    {
+      id: '6',
+      name: 'Odysee',
+      icon: 'youtube',
+      link: 'https://odysee.com/',
+    },
+  ],
+```
 
-#### Folder and systray icons <a name="icons"></a>
+### 📑 Lists & Links
 
-If ur using Nemo or any fork of Nautilus as your file manager, u can directly select the icons through right-click menu -> properties after selecting a folder. For other file managers u have to replace the icons of ur icon theme with the ones here. You can also replace the icons of any icon pack with my icons. For the systray icons copy the contents to for example /usr/share/icons/Papirus/16x16/panel and replace the icons. Then restart session.
+The same happens with the list links, you can change the list icon (also using Lucide icons) and the links. If you're using the `lists` [layout](#-layouts-bento-lists-and-buttons) you can customize `secondListsContainer`, you can find it bellow `firstListsContainer`.
 
-#### Geany colorscheme <a name="geany"></a>
+```js
+   firstlistsContainer: [
+    {
+      icon: 'music',
+      id: '1',
+      links: [
+        {
+          name: 'Inspirational',
+          link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        },
+        {
+          name: 'Classic',
+          link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        },
+        {
+          name: 'Oldies',
+          link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        },
+        {
+          name: 'Rock',
+          link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        },
+      ],
+    },
+    {
+      icon: 'coffee',
+      id: '2',
+      links: [
+        {
+          name: 'Linkedin',
+          link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        },
+        {
+          name: 'Dribbble',
+          link: 'https://www.linkedin.com',
+        },
+        {
+          name: 'Trello',
+          link: 'https://www.trello.com',
+        },
+        {
+          name: 'Slack',
+          link: 'https://www.slack.com',
+        },
+      ],
+    },
+  ],
+```
 
-Copy the dots/geany/Prismatic-Night.conf to ~/.config/geany/colorschemes.
+### ⛈️ Weather: Api Key, Icons and Unit
 
-#### Zathura <a name="zathura"></a>
+For setting up the Weather widget you'll need an API Key from: `https://openweathermap.org/`. Once you have your Key you'll need to set your latitude and longitude, you can use: `https://www.latlong.net/` to get them. 
 
-Copy the dots/zathura dir to ~/.config/
+Finally, choose an Icon set:
 
----
+![](assets/img/icons.png)
 
-## Screenshots <a name="scrots"></a>
+- **Nord** Using the Nord Color Scheme and easy-to-eyes colors
+- **OneDark** (_Default one_) Using the One Dark Pro color scheme
+- **Dark** For White theme only users that want a minimalist look
+- **White** For Dark theme only users that want a minimalist look
 
-1. **Firefox**, **tint2**
+Finally just add them to the `config.js` file.
 
-![firefox](/screenshots/ff.png)
+```js
+  // Weather
+  weatherKey: 'InsertYourAPIKeyHere123456',
+  weatherIcons: 'OneDark',
+  weatherUnit: 'C',
+  weatherLatitude: '37.774929',
+  weatherLongitude: '-122.419418',
+```
 
-2. **128x128 folder designs**
+### 💛 Colors
 
-![folders](/screenshots/folders.png)
+In the `app.css` file you can change the variables for both themes (Dark and Light):
 
-3. **ncmpcpp**, **xfce4-notify**
+```css
+/* Light theme  */
 
-![ncmpcpp](/screenshots/ncmpcpp.png)
+:root {
+  --accent: #61b0f1; /* Hover color */
+  --bg: #f5f5f5; /* Background color */
+  --sbg: #e4e6e6; /* Cards color */
+  --fg: #3a3a3a; /* Foreground color */
+  --sfg: #3a3a3a; /* Sceondary Foreground color */
+}
 
-4. **Geany**, **urxvt**, **nemo**
+/* Dark theme  */
 
-![all](/screenshots/all.png)
+.darktheme {
+  --accent: #61b0f1; /* Hover color */
+  --bg: #19171a; /* Background color */
+  --sbg: #201e21; /* Cards color */
+  --fg: #d8dee9; /* Foreground color */
+  --sfg: #3a3a3a; /* Secondary Foreground color */
+}
+```
 
-5. **Zathura**
+### 🌑 Auto change theme
 
-![zathura](/screenshots/zathura.png)
+The theme can be automatically changed by the OS' current theme or personalized hours
+that you can change in the `config.js` file:
+
+```js
+  // Autochange
+  autoChangeTheme: true,
+
+  // Autochange by OS
+  changeThemeByOS: false, 
+
+  // Autochange by hour options (24hrs format, string must be in: hh:mm)
+  changeThemeByHour: true, // If it's true, it will use the values below:
+  hourDarkThemeActive: '18:30', // Turn on the dark theme after this hour
+  hourDarkThemeInactive: '07:00', // Turn off the dark theme after this hour and before the above hour
+```
+
+![](assets/img/darkMode.png)
