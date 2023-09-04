@@ -166,7 +166,7 @@ const CONFIG = {
 			links: [
 				{
 					name: 'Fritz!Box',
-					link: 'Fritz.box',
+					link: 'http://fritz.box',
 				},
 				{
 					name: 'PiHole',
