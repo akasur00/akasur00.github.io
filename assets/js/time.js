@@ -20,7 +20,7 @@ function displayClock() {
 		hh = hh ? hh : 12;
 	}
 
-	document.getElementById('hour').innerText = hh -1;
+	document.getElementById('hour').innerText = hh;
 	document.getElementById('separator').innerHTML = ' : ';
 	document.getElementById('minutes').innerText = min + ampm;
 
