@@ -11,7 +11,7 @@ function displayClock() {
 	var mm = monthNames[d.getMonth()];
 	var dd = d.getDate();
 	var min = (mins = ('0' + d.getMinutes()).slice(-2));
-	var hh = d.getHours() - 1;
+	var hh = d.getHours();
 	var ampm = '';
 
 	if (CONFIG.twelveHourFormat) {
@@ -20,7 +20,7 @@ function displayClock() {
 		hh = hh ? hh : 12;
 	}
 
-	document.getElementById('hour').innerText = hh;
+	document.getElementById('hour').innerText = hh -1;
 	document.getElementById('separator').innerHTML = ' : ';
 	document.getElementById('minutes').innerText = min + ampm;
 
